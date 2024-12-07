@@ -1,5 +1,5 @@
 # src: chứa toàn bộ source code
-## apis: chứa api url và call api tại đây
+## apis: chứa api url và call api tại đây, trừ url-api.js để chứa url của api thì sẽ code api theo từng màn và đặt tên "tên màn-api.js", ví dụ: home-api.js, detail-api.js, ....
 ## components: chứa các component dùng chung như "card home" hay các page có thể dùng ở nhiều trang khác
 ## layouts: chứa các bố cục như header, footer, navbar, ....
-## pages: chứa các trang (hàn hình trong dự án), ví dụ: HomePage.js
+## pages: chứa các trang (hàn hình trong dự án), ví dụ + ví du đặt tên file: HomePage.js
