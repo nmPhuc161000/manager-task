@@ -1,117 +1,159 @@
+/* General Styles */
 .login-container {
   width: 400px;
-  padding: 50px 40px;
-  background: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Logo */
 .login-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.login-circle {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #6c63ff, #5149d1);
+.register-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #6c63ff;
   color: #fff;
-  font-size: 2.5rem;
-  font-weight: bold;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
-}
-
-/* Heading */
-.login-form-wrapper h2 {
-  color: #333;
   font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
 }
 
-.login-form-wrapper p {
-  color: #666;
-  font-size: 1rem;
-  margin-top: 20px;
+.login-form-wrapper h2 {
+  margin-bottom: 15px;
+  color: #333;
 }
 
-/* Input Fields */
 .login-form-wrapper input {
   width: 100%;
-  padding: 12px;
+  padding: 12px 15px;
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease-in-out;
+  font-size: 0.9rem;
 }
 
-.login-form-wrapper input:focus {
-  border-color: #6c63ff;
-  box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
-  transform: scale(1.02);
+.login-form-wrapper p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 20px;
 }
 
-/* Button */
-.login-form-wrapper button {
-  background: linear-gradient(135deg, #6c63ff, #5149d1);
-  color: #fff;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+.options-container {
+  display: flex;
+  justify-content: space-between;
+  /* Đẩy hai phần tử về hai bên */
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  margin: 10px 0;
+}
+
+/* Checkbox và Label */
+.remember-container {
+  display: flex;
+  align-items: center;
+  /* Căn giữa checkbox và text */
+  gap: 8px;
+  /* Khoảng cách giữa checkbox và text */
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #6c63ff;
+  /* Tùy chỉnh màu checkbox */
   cursor: pointer;
-  margin-top: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
 }
 
-.login-form-wrapper button:hover {
-  background: linear-gradient(135deg, #5149d1, #3e37b8);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(80, 73, 209, 0.4);
-}
-
-/* Links */
-.link {
+/* Forgot Password Link */
+.forgot-password {
+  font-size: 0.9rem;
   color: #6c63ff;
-  font-weight: bold;
-  cursor: pointer;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.link:hover {
+.forgot-password:hover {
   color: #5149d1;
   text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-container {
-    width: 90%;
-    padding: 40px 20px;
-  }
+.login-button button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button button:hover {
+  background-color: #5149d1;
+  transform: translateY(-2px);
+}
+
+.divider {
+  margin: 20px 0;
+  font-size: 0.9rem;
+  color: #aaa;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Google Button */
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-login-btn:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.google-login-btn img {
+  width: 18px;
+  margin-right: 10px;
 }
