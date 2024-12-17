@@ -1,0 +1,117 @@
+.login-container {
+  width: 400px;
+  padding: 50px 40px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo */
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.login-circle {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #6c63ff, #5149d1);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+}
+
+/* Heading */
+.login-form-wrapper h2 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.login-form-wrapper p {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+/* Input Fields */
+.login-form-wrapper input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-form-wrapper input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+  transform: scale(1.02);
+}
+
+/* Button */
+.login-form-wrapper button {
+  background: linear-gradient(135deg, #6c63ff, #5149d1);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.login-form-wrapper button:hover {
+  background: linear-gradient(135deg, #5149d1, #3e37b8);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(80, 73, 209, 0.4);
+}
+
+/* Links */
+.link {
+  color: #6c63ff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #5149d1;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;
+    padding: 40px 20px;
+  }
+}
