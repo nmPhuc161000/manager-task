@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import animationData from "../../assets/taskmanager.json";
+import Lottie from "lottie-react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -15,7 +20,6 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    // Placeholder cho chức năng đăng nhập với Google
     console.log("Login with Google clicked");
   };
 
@@ -28,34 +32,46 @@ const Login = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="login-logo">
-        <div className="register-circle">t</div>
+        <div className="login-circle">
+          <Lottie animationData={animationData} loop={true} />
+        </div>
       </div>
       <div className="login-form-wrapper">
         <h2>Sign In To Your Account.</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="input-wrapper">
+            <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <FontAwesomeIcon icon={faLock} className="input-icon" />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
           <div class="options-container">
             <div class="remember-container">
               <input type="checkbox" id="remember" />
               <label for="remember">Remember For 30 Days</label>
             </div>
-            <a href="#" class="forgot-password">Forgot Password</a>
+            <Link to="/forgot-password" className="forgot-password">
+              Forgot Password
+            </Link>
           </div>
           <div className="login-button">
-            <button type="submit">Sign In</button>
+            <button type="submit">
+              Login <FontAwesomeIcon icon={faArrowRight} className="arrow-icon" />
+            </button>
           </div>
         </form>
 
