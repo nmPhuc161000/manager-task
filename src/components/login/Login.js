@@ -14,6 +14,11 @@ const Login = () => {
     console.log("Password:", password);
   };
 
+  const handleGoogleLogin = () => {
+    // Placeholder cho chức năng đăng nhập với Google
+    console.log("Login with Google clicked");
+  };
+
   return (
     <motion.div
       className="login-container"
@@ -30,7 +35,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="email"
-            placeholder="example@gmail.com"
+            placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -42,14 +47,34 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Login</button>
-          <p>
-            Don’t have an account?{" "}
-            <span onClick={() => navigate("/register")} className="link">
-              Sign Up
-            </span>
-          </p>
+          <div class="options-container">
+            <div class="remember-container">
+              <input type="checkbox" id="remember" />
+              <label for="remember">Remember For 30 Days</label>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password</a>
+          </div>
+          <div className="login-button">
+            <button type="submit">Sign In</button>
+          </div>
         </form>
+
+        <p>
+          Don’t have an account?{" "}
+          <span onClick={() => navigate("/register")} className="link">
+            Sign Up
+          </span>
+        </p>
+
+        <div className="divider">OR</div>
+        <button className="google-login-btn" onClick={handleGoogleLogin}>
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google Logo"
+            className="google-logo"
+          />
+          Sign In With Google
+        </button>
       </div>
     </motion.div>
   );
