@@ -6,6 +6,7 @@ import { faEnvelope, faLock, faArrowRight } from "@fortawesome/free-solid-svg-ic
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
+import googleLogo from "../../assets/images/g-logo.png";
 import "./Login.css";
 
 const Login = () => {
@@ -85,7 +86,7 @@ const Login = () => {
         <div className="divider">OR</div>
         <button className="google-login-btn" onClick={handleGoogleLogin}>
           <img
-            src="https://developers.google.com/identity/images/g-logo.png"
+            src={googleLogo}
             alt="Google Logo"
             className="google-logo"
           />
