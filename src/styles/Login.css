@@ -1,17 +1,21 @@
-/* General Styles */
 .login-container {
-  width: 500px;
-  padding: 50px 40px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  padding: 30px 30px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  margin: 40px auto 0;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  max-height: 90vh;
+  overflow: auto;
 }
 
 .login-circle {
   width: 150px;
   height: 150px;
+  cursor: pointer;
 }
 
 .login-circle .lottie {
@@ -34,9 +38,10 @@
 .login-form-wrapper h2 {
   margin-bottom: 15px;
   color: #333;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
-/* Input Wrapper for Icon and Input */
 .input-wrapper {
   position: relative;
   display: flex;
@@ -63,9 +68,9 @@
 
 .login-form-wrapper input:focus {
   border-color: #6c63ff;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.3);
 }
 
-/* Options */
 .options-container {
   display: flex;
   justify-content: space-between;
@@ -73,7 +78,6 @@
   margin: 10px 0;
 }
 
-/* Checkbox và Label */
 .remember-container {
   display: flex;
   align-items: center;
@@ -86,11 +90,9 @@ input[type="checkbox"] {
   width: 16px;
   height: 16px;
   accent-color: #6c63ff;
-  /* Tùy chỉnh màu checkbox */
   cursor: pointer;
 }
 
-/* Forgot Password Link */
 .forgot-password {
   font-size: 0.9rem;
   color: #6c63ff;
@@ -103,7 +105,6 @@ input[type="checkbox"] {
   text-decoration: underline;
 }
 
-/* Login Button */
 .login-button button {
   width: 100%;
   padding: 15px;
@@ -127,7 +128,6 @@ input[type="checkbox"] {
   transform: translateY(-2px);
 }
 
-/* Divider */
 .divider {
   margin: 20px 0;
   font-size: 0.9rem;
@@ -153,7 +153,6 @@ input[type="checkbox"] {
   right: 0;
 }
 
-/* Google Login Button */
 .google-login-btn {
   display: flex;
   align-items: center;
@@ -179,10 +178,94 @@ input[type="checkbox"] {
   margin-right: 10px;
   font-size: 1rem;
   color: #ea4335;
-  /* Màu Google đỏ */
 }
 
 .google-login-btn img {
   width: 18px;
   margin-right: 10px;
+}
+
+/* Responsive Design for Mobile (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 30px 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-logo {
+    margin-bottom: 15px;
+  }
+
+  .login-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .login-form-wrapper h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .login-form-wrapper p {
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+
+  .input-icon {
+    left: 12px;
+    font-size: 0.9rem;
+  }
+
+  .login-form-wrapper input {
+    padding: 12px 15px 12px 40px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+  }
+
+  .options-container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .remember-container {
+    margin-bottom: 5px;
+  }
+
+  .login-button button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+
+  .forgot-password {
+    font-size: 0.8rem;
+  }
+
+  .divider {
+    margin: 15px 0;
+    font-size: 0.8rem;
+  }
+
+  .divider::before,
+  .divider::after {
+    width: 30%;
+  }
+
+  .google-login-btn {
+    padding: 10px;
+    font-size: 0.85rem;
+    border-radius: 25px;
+  }
+
+  .google-icon {
+    font-size: 0.9rem;
+  }
+
+  .google-login-btn img {
+    width: 16px;
+    margin-right: 8px;
+  }
 }

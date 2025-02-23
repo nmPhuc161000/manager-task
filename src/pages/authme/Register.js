@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock, faUser, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
-import "./Register.css";
+import "../../styles/Register.css";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -32,6 +32,9 @@ const Register = () => {
         navigate("/login");
     };
 
+    const handleRegisterCircleClick = () => {
+        navigate("/");
+    };
     return (
         <motion.div
             className="register-container"
@@ -41,7 +44,7 @@ const Register = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="register-logo">
-                <div className="register-circle">
+                <div className="register-circle" onClick={handleRegisterCircleClick}>
                     <Lottie animationData={animationData} loop={true} />
                 </div>
             </div>

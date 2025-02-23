@@ -7,7 +7,7 @@ import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import googleLogo from "../../assets/images/g-logo.png";
-import "./Login.css";
+import "../../styles/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +23,9 @@ const Login = () => {
   const handleGoogleLogin = () => {
     console.log("Login with Google clicked");
   };
+  const handleLoginCircleClick = () => {
+    navigate("/");
+  }
 
   return (
     <motion.div
@@ -33,7 +36,7 @@ const Login = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="login-logo">
-        <div className="login-circle">
+        <div className="login-circle" onClick={handleLoginCircleClick}>
           <Lottie animationData={animationData} loop={true} />
         </div>
       </div>

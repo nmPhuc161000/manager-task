@@ -1,0 +1,180 @@
+.header {
+    background-color: #4d718e;
+    /* Darker blue for header, matching your main page screenshot and previous layout */
+    padding: 15px 20px;
+    /* Default padding for desktop, matching your pages */
+    color: #fff;
+    /* White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    /* Evenly space logo, nav, and sign-in button */
+    align-items: center;
+    font-family: 'Poppins', Arial, sans-serif;
+    /* Use Poppins as primary font, matching your pages */
+}
+
+.header-container {
+    max-width: 1200px;
+    /* Limit width for desktop, matching your footer */
+    width: 100%;
+    margin: 0 auto;
+    /* Center the container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    /* Larger logo text for prominence, matching your pages */
+    font-weight: 600;
+    /* Bolder for emphasis, matching your pages */
+    color: #fff;
+    /* White text for contrast */
+}
+
+.logo h1 {
+    margin: 0;
+    /* Remove default margin */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    /* Spacing between nav items, matching your pages */
+}
+
+.nav-menu ul li {
+    font-size: 1rem;
+    /* Readable text size, matching your pages */
+    font-weight: 500;
+    /* Match your pages' link weight */
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    /* White links in nav */
+    text-decoration: none;
+    /* Remove default underline */
+    transition: color 0.3s ease;
+    /* Match your pages' transitions */
+}
+
+.nav-menu ul li a:hover {
+    color: #d2a679;
+    /* Bread-themed hover color, matching your pages */
+}
+
+.sign-in {
+    margin-left: 20px;
+    /* Spacing from nav, matching your pages */
+}
+
+.sign-in-button {
+    padding: 10px 20px;
+    /* Match your pages' button padding */
+    background-color: #d2a679;
+    /* Bread-themed button color, matching your pages */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    /* Match your pages' rounded corners */
+    font-size: 1rem;
+    /* Match your pages' button text size */
+    font-weight: 600;
+    /* Bolder for emphasis, matching your pages */
+    text-decoration: none;
+    /* Remove default underline */
+    display: inline-block;
+    /* Ensure padding applies correctly */
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.3s ease;
+    /* Match your pages' transitions */
+    box-shadow: 0 3px 8px rgba(210, 166, 121, 0.3);
+    /* Subtle shadow, matching your pages */
+}
+
+.sign-in-button:hover {
+    background-color: #c0935f;
+    /* Darker bread color for hover, matching your pages */
+    transform: translateY(-2px);
+    /* Lift effect, matching your pages */
+    box-shadow: 0 4px 10px rgba(192, 147, 95, 0.3);
+    /* Enhanced shadow on hover, matching your pages */
+}
+
+/* Mobile Responsive Adjustments (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .header {
+        padding: 10px 15px;
+        /* Reduced padding for mobile, matching your pages */
+        flex-direction: column;
+        /* Stack elements vertically on mobile */
+        align-items: flex-start;
+        /* Align items to start */
+    }
+
+    .header-container {
+        flex-direction: column;
+        /* Stack elements vertically on mobile */
+        align-items: center;
+        /* Center items on mobile */
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        /* Smaller logo text for mobile */
+        margin-bottom: 10px;
+        /* Spacing below logo on mobile */
+    }
+
+    .nav-menu {
+        width: 100%;
+        /* Full width on mobile */
+        margin-bottom: 10px;
+        /* Spacing below nav on mobile */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        /* Stack nav items vertically */
+        gap: 10px;
+        /* Reduced gap for mobile */
+        align-items: center;
+        /* Center nav items */
+    }
+
+    .nav-menu ul li {
+        font-size: 0.9rem;
+        /* Smaller text for mobile */
+    }
+
+    .nav-menu ul li a {
+        padding: 5px 0;
+        /* Add padding for touch targets */
+    }
+
+    .sign-in {
+        margin-left: 0;
+        /* Remove left margin on mobile */
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    .sign-in-button {
+        width: 100%;
+        /* Full width on mobile */
+        padding: 8px 16px;
+        /* Reduced padding for mobile */
+        font-size: 0.95rem;
+        /* Slightly smaller text for mobile */
+    }
+}

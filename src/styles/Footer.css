@@ -1,0 +1,223 @@
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 30px 20px 20px;
+    font-family: 'Poppins', Arial, sans-serif;
+    border-top: 2px solid rgba(210, 166, 121, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+    transition: all 0.3s ease;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(210, 166, 121, 0.3);
+    padding-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li:hover {
+    color: #d2a679;
+}
+
+.newsletter {
+    text-align: center;
+    flex: 1;
+}
+
+.newsletter h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.newsletter-form input {
+    padding: 12px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: #999;
+}
+
+.newsletter-form input:focus {
+    border-color: #d2a679;
+    box-shadow: 0 0 8px rgba(210, 166, 121, 0.4);
+}
+
+.newsletter-form button {
+    padding: 12px 25px;
+    background-color: #d2a679;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(210, 166, 121, 0.3);
+}
+
+.newsletter-form button:hover {
+    background-color: #c0935f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(192, 147, 95, 0.4);
+}
+
+.contact-info {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.contact-info span {
+    color: #d2a679;
+}
+
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #d2a679;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.back-to-top {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 15px;
+    transition: all 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(51, 51, 51, 0.3);
+}
+
+.back-to-top:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(68, 68, 68, 0.4);
+}
+
+/* Mobile Responsive Adjustments (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .footer {
+        padding: 20px 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .contact-info {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    .footer-bottom {
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
