@@ -1,27 +1,10 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import Login from "./components/authme/Login";
-import Register from "./components/authme/Register";
-import ForgotPassword from "./components/authme/ForgotPassword";
-
-const AnimatedRoutes = () => {
-  const location = useLocation();
-
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword/>} />
-      </Routes>
-    </AnimatePresence>
-  );
-};
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/AppRouter"; // Import AppRouter
 
 function App() {
   return (
     <BrowserRouter>
-      <AnimatedRoutes />
+      <AppRouter />
     </BrowserRouter>
   );
 }
