@@ -268,11 +268,11 @@ const pricingPlans = [
 
 const faqs = [
   {
-    question: "What is Taskify?",
-    answer: "Taskify is a task management tool designed to help individuals and teams organize, track, and complete tasks efficiently.",
+    question: "What is Pro Manager?",
+    answer: "Pro Manager is a task management tool designed to help individuals and teams organize, track, and complete tasks efficiently.",
   },
   {
-    question: "Can I use Taskify for free?",
+    question: "Can I use Pro Manager for free?",
     answer: "Yes! We offer a free Basic plan with essential features to get you started.",
   },
   {
@@ -280,7 +280,7 @@ const faqs = [
     answer: "Our collaboration feature allows you to share tasks, assign them to team members, and get real-time updates on progress.",
   },
   {
-    question: "Is my data secure with Taskify?",
+    question: "Is my data secure with Pro Manager?",
     answer: "Absolutely. We use industry-standard encryption to ensure your data is safe and secure.",
   },
 ];
