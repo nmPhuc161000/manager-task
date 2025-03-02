@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
       {/* Header/Navigation */}
       <header className="header">
         <nav className="navbar">
-          <div className="logo">Taskify</div>
+          <div className="logo">Pro Manager</div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/features">Features</a></li>
@@ -23,7 +23,7 @@ const MainLayout = ({ children }) => {
 
       {/* Footer */}
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Taskify. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Pro Manager. All rights reserved.</p>
         <div className="footer-links">
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
@@ -229,7 +229,7 @@ const features = [
 
 const testimonials = [
   {
-    quote: "Taskify has transformed the way our team works. We've never been more organized!",
+    quote: "Pro Manager has transformed the way our team works. We've never been more organized!",
     author: "Jane Doe",
     role: "Project Manager",
   },
