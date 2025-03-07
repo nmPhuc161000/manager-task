@@ -1,0 +1,78 @@
+/* VerifyEmail.css */
+.otp-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Đảm bảo popup hiển thị trên cùng */
+}
+
+.otp-popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    max-width: 90%;
+}
+
+.otp-popup h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.otp-popup p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.otp-popup input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.otp-popup input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.otp-popup button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.otp-popup button:first-of-type {
+    background-color: #007bff;
+    color: white;
+}
+
+.otp-popup button:first-of-type:hover {
+    background-color: #0056b3;
+}
+
+.otp-popup button:last-of-type {
+    background-color: #ccc;
+    color: #333;
+}
+
+.otp-popup button:last-of-type:hover {
+    background-color: #999;
+}

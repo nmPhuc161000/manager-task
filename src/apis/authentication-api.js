@@ -1,10 +1,4 @@
-import axios from "axios";
-import urlApi from "./url-api";
-
-const apiClient = axios.create({
-    baseURL: urlApi,
-    timeout: 10000, // Thời gian timeout 10 giây
-});
+import apiClient from "./url-api";
 
 export const login = async (data) => {
     try {
@@ -23,9 +17,9 @@ export const login = async (data) => {
 
 export const register = async (data) => {
     try {
-        const response = await apiClient.post(`/api/Auth/user/register`, data, {
+        const response = await apiClient.post(`/api/Auth/user/register/user`, data, {
             headers: {
-                "Content-Type": `application/json`,
+                "Content-Type": `multipart/form-data`,
                 Accept: "*/*",
             },
         });
@@ -35,6 +29,23 @@ export const register = async (data) => {
         throw error;
     }
 }
+
+export const verifyOtp = async (data) => {
+    try {
+        const response = await apiClient.post(`/api/Auth/user/otp/verify`, data,
+            {
+                headers: {
+                    "Content-Type": `application/json`,
+                    Accept: "*/*",
+                },
+            }
+        );
+        return response;
+    } catch (error) {
+        console.error("Error fetching services:", error);
+        throw error;
+    }
+};
 
 export const forgotPassword = async (email) => {
     try {
@@ -81,22 +92,3 @@ export const resetPassword = async (token, newPassword) => {
     }
 };
 
-export const verifyEmail = async (dataOTP) => {
-    try {
-        const response = await apiClient.post(
-            `/api/Auth/user/otp/verify`,
-            dataOTP,
-            {
-                headers: {
-                    "Content-Type": `application/json`,
-                    Accept: "*/*",
-                },
-            }
-        );
-
-        return response;
-    } catch (error) {
-        console.error("Error fetching services:", error);
-        throw error;
-    }
-};

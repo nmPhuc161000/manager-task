@@ -2,22 +2,77 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock, faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import googleLogo from "../../assets/images/g-logo.png";
+import { jwtDecode } from "jwt-decode";
+import { login } from "../../apis/authentication-api";
 import "../../styles/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    if (!email || !password) {
+      alert("Please check input");
+      setIsLoading(false);
+      return;
+    }
+    const data = {
+      email: email,
+      passwordHash: password,
+    };
+
+    console.log(data);
+
+    setIsLoading(true);
+    try {
+      const response = await login(data);
+
+      alert(response.data.message);
+
+      console.log("Data: ", response);
+
+      const token = response.data.data.accessToken;
+      localStorage.setItem("token", token);
+      console.log("Token: ", token);
+
+      // Giải mã token để lấy thông tin role
+      const decodedToken = jwtDecode(token);
+      const role =
+        decodedToken[
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+        ]; // Giả sử 'role' là key chứa role trong token
+      localStorage.setItem("role", role);
+      console.log("decode: ", decodedToken);
+
+      const full_name =
+        decodedToken[
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+        ];
+      localStorage.setItem("full_name", full_name);
+
+      localStorage.setItem("userId", decodedToken.id);
+
+      // Chuyển hướng dựa trên role
+      if (role === "User") {
+        navigate("/");
+      } else if (role === "Staff") {
+        navigate("/shopProfile/shop");
+      }
+      console.log("Data: ", response);
+    } catch (error) {
+      const responseData = JSON.parse(error.response?.request?.response || "{}");
+      alert(responseData.message);
+      setIsLoading(false);
+      console.error("An error occurred while sending the API request:", error);
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -63,8 +118,8 @@ const Login = () => {
               required
             />
           </div>
-          <div class="options-container">
-            <div class="remember-container">
+          <div className="options-container">
+            <div className="remember-container">
               <input type="checkbox" id="remember" />
               <label for="remember">Remember For 30 Days</label>
             </div>
@@ -74,7 +129,15 @@ const Login = () => {
           </div>
           <div className="login-button">
             <button type="submit">
-              Login <FontAwesomeIcon icon={faArrowRight} className="arrow-icon" />
+              {isLoading ? (
+                <>
+                  <FontAwesomeIcon icon={faSpinner} spin /> Logging in...
+                </>
+              ) : (
+                <>
+                  Login <FontAwesomeIcon icon={faArrowRight} className="arrow-icon" />
+                </>
+              )}
             </button>
           </div>
         </form>
