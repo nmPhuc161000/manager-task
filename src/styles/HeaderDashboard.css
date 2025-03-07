@@ -1,0 +1,73 @@
+.header-dashboard {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Giữ header cố định ở trên cùng */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Đảm bảo header luôn ở trên cùng */
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown {
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-arrow {
+    margin-left: 5px;
+}
+
+.create-button {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: #0079bf;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.search-icon {
+    margin-right: 5px;
+}
+
+.search-bar input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.header-icon {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+}
