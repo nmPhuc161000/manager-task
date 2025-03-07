@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock, faUser, faArrowRight, faPhone, faSpinner} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock, faUser, faArrowRight, faPhone, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import "../../styles/Register.css";

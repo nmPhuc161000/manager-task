@@ -49,12 +49,11 @@ export const verifyOtp = async (data) => {
 
 export const forgotPassword = async (email) => {
     try {
-        const formData = new FormData();
-        formData.append("EmailOrPhoneNumber", email);
+        console.log(email);
 
         const response = await apiClient.post(
             `/api/Auth/user/password/forgot`,
-            formData,
+            email,
             {
                 headers: {
                     "Content-Type": `multipart/form-data`,
@@ -69,12 +68,8 @@ export const forgotPassword = async (email) => {
     }
 };
 
-export const resetPassword = async (token, newPassword) => {
+export const resetPassword = async (data) => {
     try {
-        const data = {
-            token: token,
-            newPassword: newPassword,
-        };
         const response = await apiClient.post(
             `/api/Auth/user/password/reset`,
             data,
