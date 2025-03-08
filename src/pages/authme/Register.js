@@ -6,8 +6,9 @@ import { faEnvelope, faLock, faUser, faArrowRight, faPhone, faSpinner } from "@f
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import "../../styles/Register.css";
-import { register } from "../../apis/authentication-api";
+import { register } from "../../apis/authentication-api";   
 import VerifyEmail from "../../components/VerifyEmail";
+import { toast } from "react-toastify"; // Import toast từ react-toastify
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -32,12 +33,12 @@ const Register = () => {
         console.log(formData);
 
         if (!formData.userName || !formData.email || !formData.passwordHash || !formData.confirmPassword || !formData.phoneNo) {
-            alert("Please check your input!");
+            toast.error("Please check your input!"); 
             setIsLoading(false);
             return;
         }
         if (formData.passwordHash !== formData.confirmPassword) {
-            alert("Passwords do not match!");
+            toast.error("Passwords do not match!");
             setIsLoading(false);
             return;
         }
@@ -51,13 +52,13 @@ const Register = () => {
         try {
             const response = await register(data);
             console.log("Data: ", response);
-            alert(response.data?.message);
+            toast.success(response.data?.message); 
             // Hiển thị popup OTP và lưu email đã đăng ký
             setRegisteredEmail(formData.email);
             setShowOtpPopup(true);
         } catch (error) {
             const responseData = JSON.parse(error.response?.request?.response || "{}");
-            alert(responseData?.message);
+            toast.error(responseData?.message || "An error occurred while registering."); 
             setIsLoading(false);
             console.error("An error occurred while sending the API request:", error);
         }
@@ -78,6 +79,7 @@ const Register = () => {
         setIsLoading(false);
         setShowOtpPopup(false); // Ẩn popup OTP
     };
+
     return (
         <motion.div
             className="register-container"
@@ -168,7 +170,7 @@ const Register = () => {
                     </span>
                 </p>
             </div>
-            {/* Hiển thị popup OTP nếu `showOtpPopup` là true */}
+            {/* Hiển thị popup OTP nếu showOtpPopup là true */}
             {showOtpPopup && (
                 <VerifyEmail
                     email={registeredEmail}
