@@ -1,0 +1,93 @@
+/* General Dashboard Layout Styling */
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%); /* Gradient nền nhẹ nhàng */
+    padding-top: 60px; /* Để tránh header che phủ nội dung */
+    overflow: hidden; /* Ngăn cuộn toàn cục nếu không cần thiết */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Font hiện đại */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+  }
+  
+  /* Dashboard Content Area */
+  .dashboard-content {
+    display: flex;
+    flex-grow: 1;
+    background: #ffffff; /* Nền trắng cho phần nội dung chính */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Bóng nhẹ để tạo chiều sâu */
+    border-radius: 8px; /* Bo góc nhẹ */
+    overflow: hidden; /* Ngăn tràn nội dung */
+  }
+  
+  /* Sidebar Styling */
+  .dashboard-content .sidebar {
+    width: 280px;
+    background: #f5f6f5; /* Nền sidebar */
+    transition: width 0.3s ease; /* Hiệu ứng khi thay đổi kích thước */
+  }
+  
+  /* Content Area */
+  .content {
+    flex-grow: 1;
+    padding: 30px; /* Tăng padding để tạo không gian thoáng hơn */
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    background: #ffffff; /* Đảm bảo nền trắng */
+    color: #333; /* Màu chữ chính */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .main-content .sidebar {
+      width: 240px; /* Thu nhỏ sidebar trên màn hình vừa */
+    }
+  
+    .content {
+      padding: 20px; /* Giảm padding trên màn hình vừa */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-layout {
+      padding-top: 50px; /* Giảm padding-top trên màn hình nhỏ */
+    }
+  
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .main-content .sidebar {
+      width: 100%; /* Sidebar chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+      height: 60px; /* Chiều cao cố định khi thu gọn */
+      overflow-x: auto; /* Cho phép cuộn ngang nếu cần */
+    }
+  
+    .content {
+      padding: 15px; /* Giảm padding thêm trên màn hình nhỏ */
+      height: calc(100vh - 50px); /* Điều chỉnh chiều cao để phù hợp */
+    }
+  }
+  
+  /* Custom Scrollbar for Content */
+  .content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background: #a0aec0;
+    border-radius: 4px;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Ensure Header and Sidebar Integration */
+  .header-dashboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Đảm bảo header luôn nằm trên cùng */
+    height: 60px; /* Chiều cao header */
+  }

@@ -1,0 +1,147 @@
+/* Header Dashboard Styling */
+.header-dashboard {
+    width: 100%;
+    background-color: #026aa7; /* Màu xanh Trello */
+    padding: 8px 20px; /* Giảm padding để gọn gàng hơn */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 48px; /* Chiều cao tiêu chuẩn của header Trello */
+  }
+  
+  /* Left Section */
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff; /* Màu trắng trên nền xanh */
+    margin-right: 20px;
+  }
+  
+  .dropdown {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 5px;
+    color: #fff;
+  }
+  
+  .create-button {
+    padding: 6px 12px;
+    background-color: #005f99; /* Màu xanh đậm hơn */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .create-button:hover {
+    background-color: #004d7a;
+  }
+  
+  .create-button .fa-plus {
+    margin-right: 5px;
+  }
+  
+  /* Center Section */
+  .header-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 4px 10px;
+    border-radius: 3px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .search-icon {
+    color: #5e6c84;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  
+  .search-bar input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #172b4d;
+    width: 100%;
+  }
+  
+  /* Right Section */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Thêm khoảng cách giữa các phần tử trong header-right */
+  }
+  
+  .header-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .header-icon:hover {
+    color: #d3e0ea;
+  }
+  
+  /* User Avatar Container (kế thừa từ UserAvatar.css) */
+  .user-avatar-container {
+    margin-left: 0; /* Đảm bảo không thêm margin trái thừa */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-dashboard {
+      padding: 8px 10px;
+    }
+  
+    .logo {
+      font-size: 1.2rem;
+    }
+  
+    .create-button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  
+    .search-bar {
+      max-width: 200px;
+    }
+  
+    .header-right {
+      gap: 10px; /* Giảm khoảng cách trên mobile */
+    }
+  
+    .header-icon {
+      margin-left: 0;
+    }
+  
+    .user-avatar-container {
+      margin-left: 0;
+    }
+  }

@@ -6,6 +6,8 @@ import { faEnvelope, faLock, faArrowRight, faSpinner } from "@fortawesome/free-s
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import googleLogo from "../../assets/images/g-logo.png";
 import { jwtDecode } from "jwt-decode";
 import { login } from "../../apis/authentication-api";
@@ -20,7 +22,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      alert("Please check input");
+      toast.error("Please check input");
       setIsLoading(false);
       return;
     }
@@ -35,41 +37,31 @@ const Login = () => {
     try {
       const response = await login(data);
 
-      alert(response.data.message);
-
       console.log("Data: ", response);
 
       const token = response.data.data.accessToken;
       localStorage.setItem("token", token);
       console.log("Token: ", token);
 
-      // Giải mã token để lấy thông tin role
       const decodedToken = jwtDecode(token);
-      const role =
-        decodedToken[
-        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-        ]; // Giả sử 'role' là key chứa role trong token
+      const role = decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
       localStorage.setItem("role", role);
       console.log("decode: ", decodedToken);
 
-      const full_name =
-        decodedToken[
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-        ];
+      const full_name = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
       localStorage.setItem("full_name", full_name);
 
       localStorage.setItem("userId", decodedToken.id);
 
-      // Chuyển hướng dựa trên role
-      if (role === "User") {
-        navigate("/");
-      } else if (role === "Staff") {
-        navigate("/shopProfile/shop");
-      }
-      console.log("Data: ", response);
+      // Chỉ lưu thông báo vào localStorage, không gọi toast ở đây
+      localStorage.setItem("loginMessage", response.data.message || "Login successful!");
+
+      // Chuyển ngay sang dashboard
+      navigate("/dashboard");
+      setIsLoading(false);
     } catch (error) {
       const responseData = JSON.parse(error.response?.request?.response || "{}");
-      alert(responseData.message);
+      toast.error(responseData.message || "An error occurred!");
       setIsLoading(false);
       console.error("An error occurred while sending the API request:", error);
     }
@@ -78,9 +70,10 @@ const Login = () => {
   const handleGoogleLogin = () => {
     console.log("Login with Google clicked");
   };
+
   const handleLoginCircleClick = () => {
     navigate("/");
-  }
+  };
 
   return (
     <motion.div
@@ -121,14 +114,14 @@ const Login = () => {
           <div className="options-container">
             <div className="remember-container">
               <input type="checkbox" id="remember" />
-              <label for="remember">Remember For 30 Days</label>
+              <label htmlFor="remember">Remember For 30 Days</label>
             </div>
             <Link to="/forgot-password" className="forgot-password">
               Forgot Password
             </Link>
           </div>
           <div className="login-button">
-            <button type="submit">
+            <button type="submit" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <FontAwesomeIcon icon={faSpinner} spin /> Logging in...
@@ -151,11 +144,7 @@ const Login = () => {
 
         <div className="divider">OR</div>
         <button className="google-login-btn" onClick={handleGoogleLogin}>
-          <img
-            src={googleLogo}
-            alt="Google Logo"
-            className="google-logo"
-          />
+          <img src={googleLogo} alt="Google Logo" className="google-logo" />
           Sign In With Google
         </button>
       </div>
