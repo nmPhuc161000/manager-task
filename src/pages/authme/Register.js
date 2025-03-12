@@ -6,7 +6,7 @@ import { faEnvelope, faLock, faUser, faArrowRight, faPhone, faSpinner } from "@f
 import animationData from "../../assets/taskmanager.json";
 import Lottie from "lottie-react";
 import "../../styles/Register.css";
-import { register } from "../../apis/authentication-api";   
+import { register } from "../../apis/authentication-api";
 import VerifyEmail from "../../components/VerifyEmail";
 import { toast } from "react-toastify"; // Import toast từ react-toastify
 
