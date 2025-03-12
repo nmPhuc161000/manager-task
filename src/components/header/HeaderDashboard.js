@@ -9,7 +9,7 @@ const HeaderDashboard = () => {
     return (
         <header className="header-dashboard">
             <div className="header-left">
-                <Link to="/" className="logo">TeamSync</Link>
+                <Link to="/dashboard" className="logo">TeamSync</Link>
                 <div className="dropdown">
                     <span>Các Không gian làm việc</span>
                     <FontAwesomeIcon icon={faAngleDown} className="dropdown-arrow" />
