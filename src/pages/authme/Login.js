@@ -48,8 +48,11 @@ const Login = () => {
       localStorage.setItem("role", role);
       console.log("decode: ", decodedToken);
 
-      const full_name = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
-      localStorage.setItem("full_name", full_name);
+      const userName = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
+      localStorage.setItem("userName", userName);
+
+      const email = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"];
+      localStorage.setItem("email", email);
 
       localStorage.setItem("userId", decodedToken.id);
 

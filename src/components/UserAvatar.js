@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserAvatar.css";
 
 const UserAvatar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Trạng thái để kiểm soát dropdown
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null); // Tạo ref để theo dõi dropdown
+  const email = localStorage.getItem('email');
+  const userName = localStorage.getItem('userName');
 
   const user = {
-    name: "Bảo Nguyễn Ngọc",
-    email: "ngocbao22032002@gmail.com",
-    initials: "BN",
+    name: userName,
+    email: email,
+    initials: email?.match(/[a-zA-Z]/g)?.slice(0, 2).join('').toUpperCase() || email?.charAt(0).toUpperCase(),
   };
 
   const handleLogout = () => {
@@ -19,11 +22,28 @@ const UserAvatar = () => {
   };
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen); // Toggle trạng thái hiển thị dropdown
+    setIsOpen(!isOpen);
   };
 
+  // Hàm xử lý khi nhấp ra ngoài
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  // Thêm và xóa sự kiện click khi component mount/unmount
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <div className="user-avatar">
+    <div className="user-avatar" ref={dropdownRef}>
       <div className="avatar-initials" onClick={toggleDropdown}>
         {user.initials}
       </div>
@@ -45,7 +65,7 @@ const UserAvatar = () => {
 
           {/* Phần Trello */}
           <div className="dropdown-section">
-            <h3>TRELLO</h3>
+            <h3>ProManage</h3>
             <Link to="/profile">Hồ sơ và Hiện thị</Link>
             <Link to="/activity">Hoạt động</Link>
             <Link to="/cards">Thẻ</Link>

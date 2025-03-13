@@ -5,7 +5,7 @@ import { faClock, faTimes, faQuestionCircle, faStar } from "@fortawesome/free-so
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Dashboard.css";
-import { createNewBoard, viewAllBoards } from "../apis/authentication-api";
+import { createNewBoard, viewAllOpenBoards } from "../apis/board-api";
 import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
@@ -35,10 +35,10 @@ const Dashboard = () => {
 
   const fetchBoards = async () => {
     try {
-      const response = await viewAllBoards(0, 10); // Default pagination
-      console.log("View all boards response:", response.data);
+      const response = await viewAllOpenBoards(0, 10); // Default pagination
+      console.log("View all boards response:", response.data.data);
       if (response.data && response.data.error === 0) {
-        setBoards(response.data.items || []); // Use 'items' instead of 'data'
+        setBoards(response.data.data || []); // Use 'items' instead of 'data'
       } else {
         setBoards([]); // Ensure boards is empty if error or no data
         toast.error(response.data.message || "Không thể tải danh sách bảng!");
@@ -82,6 +82,9 @@ const Dashboard = () => {
       status: status,
       type: type,
     };
+
+    console.log("data", data);
+
 
     try {
       const response = await createNewBoard(data);
@@ -142,7 +145,7 @@ const Dashboard = () => {
               <div className="panel-body">
                 <div className="form-group">
                   <label htmlFor="board-title">
-                    Tiêu đề bảng <span className="required">*</span>
+                    Title <span className="required">*</span>
                   </label>
                   <input
                     type="text"
@@ -155,7 +158,7 @@ const Dashboard = () => {
                   {!title.trim() && <p className="error-message">Tiêu đề bảng là bắt buộc</p>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="board-description">Mô tả</label>
+                  <label htmlFor="board-description">Description</label>
                   <input
                     type="text"
                     id="board-description"
@@ -165,7 +168,7 @@ const Dashboard = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="status">Trạng thái</label>
+                  <label htmlFor="status">Status</label>
                   <select
                     id="status"
                     value={status}
@@ -176,7 +179,7 @@ const Dashboard = () => {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="type">Loại</label>
+                  <label htmlFor="type">Type</label>
                   <select
                     id="type"
                     value={type}
