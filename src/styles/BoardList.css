@@ -1,0 +1,17 @@
+/* BoardList.css */
+
+/* Container cho danh sách bảng mở */
+.board-list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive design cho danh sách bảng mở */
+  @media (max-width: 768px) {
+    .board-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+  }

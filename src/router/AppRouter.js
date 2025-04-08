@@ -5,6 +5,7 @@ import Register from "../pages/authme/Register";
 import ForgotPassword from "../pages/authme/ForgotPassword";
 import HomePage from "../pages/HomePage";
 import Dashboard from "../pages/Dashboard";
+import BoardDetails from "../pages/BoardDetails"; // Thêm import BoardDetails
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -32,6 +33,7 @@ const AppRouter = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/board/:boardId" element={<BoardDetails />} /> {/* Thêm route cho BoardDetails */}
         </Routes>
       </AnimatePresence>
     </>
