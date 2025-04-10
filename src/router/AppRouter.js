@@ -6,6 +6,10 @@ import ForgotPassword from "../pages/authme/ForgotPassword";
 import HomePage from "../pages/HomePage";
 import Dashboard from "../pages/Dashboard";
 import BoardDetails from "../pages/BoardDetails"; // Thêm import BoardDetails
+import ProductGuide from "../pages/ProductGuide"; // New page
+import Pricing from "../pages/Pricing"; // New page
+import OurServices from "../pages/OurServices"; // New page
+import AboutUs from "../pages/AboutUs"; // New page
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -34,6 +38,10 @@ const AppRouter = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/board/:boardId" element={<BoardDetails />} /> {/* Thêm route cho BoardDetails */}
+          <Route path="/product-guide" element={<ProductGuide />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/our-services" element={<OurServices />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </AnimatePresence>
     </>

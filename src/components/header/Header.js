@@ -7,16 +7,16 @@ const Header = () => {
       <div className="header-container">
         {/* Logo */}
         <div className="logo">
-          <h1>Task Manager</h1>
+          <h1>Pro Manager</h1>
         </div>
 
         {/* Navigation Menu */}
         <nav className="nav-menu">
           <ul>
             <li><a href="/product-guide">Product Guide</a></li>
-            <li><a href="/templates">Templates</a></li>
+            <li><a href="/our-services">Our Services</a></li>
             <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/enterprise">Enterprise</a></li>
+            <li><a href="/about-us">About Us</a></li>
           </ul>
         </nav>
 
