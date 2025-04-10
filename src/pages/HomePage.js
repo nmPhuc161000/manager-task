@@ -3,6 +3,7 @@ import '../styles/HomePage.css';
 import { motion } from 'framer-motion';
 import MainLayout from '../layouts/MainLayout';
 import { features, testimonials, pricingPlans, faqs } from '../data/sampleData';
+import { useNavigate } from 'react-router-dom';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -29,6 +30,19 @@ const slideInRight = {
 };
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  // Function to handle button clicks based on pricing plan
+  const handlePlanNavigation = (planName) => {
+    if (planName === 'Basic') {
+      navigate('/login'); // Navigate to sign-in for free plan
+    } else if (planName === 'Standard') { // Updated from 'Pro'
+      navigate('/payment'); // Navigate to payment for Standard plan
+    } else if (planName === 'Contact Us') { // Updated to match current data
+      navigate('/contact'); // Navigate to contact for Contact Us plan
+    }
+  };
+
   return (
     <MainLayout>
       <motion.section className="hero-section" variants={containerVariants} initial="hidden" animate="visible">
@@ -41,6 +55,7 @@ const HomePage = () => {
           whileTap={{ scale: 0.95 }}
           variants={itemVariants}
           className="cta-button"
+          onClick={() => navigate('/register')}
         >
           Get Started
         </motion.button>
@@ -97,7 +112,16 @@ const HomePage = () => {
                   <li key={idx}>{feature}</li>
                 ))}
               </ul>
-              <button className="cta-button">Choose Plan</button>
+              <button
+                className="cta-button"
+                onClick={() => handlePlanNavigation(plan.name)}
+              >
+                {plan.name === 'Basic'
+                  ? 'Get Started'
+                  : plan.name === 'Standard'
+                  ? 'Pay Now for Exclusive Price' // Updated text for Standard plan
+                  : 'Contact Now'}
+              </button>
             </motion.div>
           ))}
         </div>
@@ -126,6 +150,7 @@ const HomePage = () => {
           whileTap={{ scale: 0.95 }}
           variants={itemVariants}
           className="cta-button"
+          onClick={() => navigate('/register')}
         >
           Sign Up Now
         </motion.button>
