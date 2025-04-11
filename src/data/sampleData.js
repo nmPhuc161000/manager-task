@@ -48,7 +48,7 @@ export const pricingPlans = [
   },
   {
     name: 'Standard',
-    price: '39,000 VND/month (was 49,000 VND)', // Updated to show discount
+    price: '39,000 VND/month (was 49,000 VND)',
     features: [
       'Up to 20 boards for enhanced productivity and team workflows',
       'Advanced team collaboration with real-time updates and mentions',
@@ -62,16 +62,17 @@ export const pricingPlans = [
     highlighted: true,
   },
   {
-    name: 'Contact Us',
-    price: 'Custom Quote Available',
+    name: 'Premium',
+    price: '399,000 VND/year (was 468,000 VND)', // Updated to annual plan with discount
     features: [
-      'Need more than Pro? Contact us for a personalized plan',
-      'Discuss your needs with our team for tailored solutions',
-      'Flexible board and feature limits based on your requirements',
-      'Custom support options—let’s find what works for you',
-      'Advanced integrations and security—talk to us for details',
-      'Scalable storage and file upload options upon request',
-      'Exclusive training and onboarding—contact us to learn more',
+      'Unlimited boards for maximum productivity and scalability',
+      'All Standard plan features, plus exclusive Premium benefits',
+      'Dedicated account manager and 24/7 priority support',
+      'Unlimited file uploads (up to 100MB per file)',
+      'Advanced security features, including two-factor authentication',
+      'Custom reporting and analytics with real-time insights',
+      'Exclusive access to beta features and early updates',
+      'Team training sessions and personalized onboarding',
     ],
     highlighted: false,
   },
