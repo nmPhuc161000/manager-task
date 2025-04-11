@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/HomePage.css'; // Import the same CSS as HomePage
+import MainLayout from '../layouts/MainLayout';
 import { motion } from 'framer-motion';
 import { pricingPlans } from '../data/sampleData'; // Import pricingPlans
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
@@ -34,44 +35,46 @@ const Pricing = () => {
   };
 
   return (
-    <div className="pricing-page">
-      <motion.section
-        className="pricing-section"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible" // Changed to animate for full-page load
-      >
-        <motion.h2 variants={itemVariants}>Simple Pricing Plans</motion.h2>
-        <div className="pricing-grid">
-          {pricingPlans.map((plan, index) => (
-            <motion.div
-              key={index}
-              className={`pricing-card ${plan.highlighted ? 'highlighted' : ''}`}
-              variants={itemVariants}
-              whileHover={{ scale: 1.03 }}
-            >
-              <h3>{plan.name}</h3>
-              <p className="price">{plan.price}</p>
-              <ul>
-                {plan.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-              <button
-                className="cta-button"
-                onClick={() => handlePlanNavigation(plan.name)}
+    <MainLayout>
+      <div className="pricing-page">
+        <motion.section
+          className="pricing-section"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible" // Changed to animate for full-page load
+        >
+          <motion.h2 variants={itemVariants}>Simple Pricing Plans</motion.h2>
+          <div className="pricing-grid">
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                className={`pricing-card ${plan.highlighted ? 'highlighted' : ''}`}
+                variants={itemVariants}
+                whileHover={{ scale: 1.03 }}
               >
-                {plan.name === 'Basic'
-                  ? 'Get Started'
-                  : plan.name === 'Standard'
-                  ? 'Pay Now for Exclusive Price'
-                  : 'Contact Now'}
-              </button>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-    </div>
+                <h3>{plan.name}</h3>
+                <p className="price">{plan.price}</p>
+                <ul>
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+                <button
+                  className="cta-button"
+                  onClick={() => handlePlanNavigation(plan.name)}
+                >
+                  {plan.name === 'Basic'
+                    ? 'Get Started'
+                    : plan.name === 'Standard'
+                      ? 'Pay Now for Exclusive Price'
+                      : 'Contact Now'}
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+      </div>
+    </MainLayout>
   );
 };
 

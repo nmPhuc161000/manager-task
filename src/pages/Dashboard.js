@@ -226,7 +226,7 @@ const Dashboard = () => {
       </div>
       <h2 className="dashboard-title">Các Không gian làm việc của bạn</h2>
       <div className="dashboard-tabs">
-        <button className="tab active">Trello Không gian làm việc</button>
+        <button className="tab active">Không gian làm việc</button>
         <button className="tab">Bảng</button>
         <button className="tab">Đang xem</button>
         <button className="tab">Thành viên (6)</button>
