@@ -1,174 +1,398 @@
 .services-page {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #f9fafb;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a202c;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* New Features Section */
+.features-section {
+  margin: 60px 0;
+}
+
+.features-section h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1a202c;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #e5e7eb;
+}
+
+.feature-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feature-item h5 {
+  font-size: 1.1rem;
+  color: #e5e7eb;
+  margin-bottom: 5px;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2d3748;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 20px;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-card li {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.service-card li::before {
+  content: '✔';
+  color: #48bb78;
+  position: absolute;
+  left: 0;
+}
+
+/* Call to Action */
+.cta-section {
+  background: linear-gradient(135deg, #48bb78, #4299e1);
+  color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.cta-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background: #fff;
+  color: #e5e7eb;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #edf2f7;
+}
+
+/* Empowerment Section (Redesigned Page-Style Layout) */
+.empowerment-section {
+  background: #f9fafb;
+  padding: 100px 0 60px;
+  text-align: center;
+}
+
+.empowerment-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.empowerment-subtitle {
+  font-size: 1.25rem;
+  color: #4a5568;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  line-height: 1.6;
+}
+
+.empowerment-pages {
+  display: flex;
+  flex-direction: column;
+}
+
+.empowerment-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b 0%, #111827 100%);
+  color: #ffffff;
+  position: relative;
+  padding: 60px 20px;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+/* Cosmic background effect */
+.empowerment-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 60%);
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.page-content {
+  max-width: 900px;
+  width: 90%;
+  padding: 80px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.empowerment-icon {
+  font-size: 4.5rem;
+  margin-bottom: 40px;
+  color: #e5e7eb;
+  filter: drop-shadow(0 8px 20px rgba(59, 130, 246, 0.6));
+}
+
+.page-content h4 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 32px;
+  letter-spacing: -0.015em;
+}
+
+.page-explanation {
+  font-size: 1.3rem;
+  color: #e5e7eb;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.page-features {
+  margin-top: 40px;
+}
+
+.page-features h5 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #d1d5db;
+  margin-bottom: 28px;
+}
+
+.page-features ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-features li {
+  font-size: 1.15rem;
+  color: #e5e7eb;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 32px;
+  text-align: left;
+}
+
+.page-features li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #e5e7eb;
+  font-size: 1.3rem;
+}
+
+/* Scroll Snap for Page Navigation */
+@media (min-height: 600px) {
+  .empowerment-pages {
+      scroll-snap-type: y mandatory;
   }
-  
-  .services-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .empowerment-section {
+      padding: 80px 0 40px;
   }
-  
-  .services-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #1a202c;
+
+  .empowerment-title {
+      font-size: 2.25rem;
   }
-  
-  .section-subtitle {
-    font-size: 1.2rem;
-    color: #4a5568;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+
+  .empowerment-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 60px;
   }
-  
-  /* New Features Section */
-  .features-section {
-    margin: 60px 0;
+
+  .empowerment-page {
+      min-height: 80vh;
+      padding: 40px 15px;
   }
-  
-  .features-section h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #1a202c;
+
+  .page-content {
+      padding: 48px;
   }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+
+  .empowerment-icon {
+      font-size: 3.5rem;
+      margin-bottom: 32px;
   }
-  
-  .feature-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease;
+
+  .page-content h4 {
+      font-size: 2rem;
   }
-  
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+
+  .page-explanation {
+      font-size: 1.15rem;
+      margin-bottom: 40px;
   }
-  
-  .feature-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #2d3748;
+
+  .page-features h5 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
   }
-  
-  .feature-details {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+  .page-features li {
+      font-size: 1rem;
+      padding-left: 28px;
   }
-  
-  .feature-item h5 {
-    font-size: 1.1rem;
-    color: #2d3748;
-    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .empowerment-title {
+      font-size: 1.875rem;
   }
-  
-  .feature-item p {
-    font-size: 0.9rem;
-    color: #4a5568;
-    margin: 0;
+
+  .empowerment-subtitle {
+      font-size: 1rem;
   }
-  
-  /* Services Grid */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+
+  .empowerment-page {
+      min-height: 70vh;
   }
-  
-  .service-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease;
+
+  .page-content {
+      padding: 32px;
   }
-  
-  .service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+
+  .empowerment-icon {
+      font-size: 3rem;
+      margin-bottom: 24px;
   }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #2d3748;
+
+  .page-content h4 {
+      font-size: 1.75rem;
   }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #4a5568;
-    margin-bottom: 20px;
+
+  .page-explanation {
+      font-size: 1rem;
+      margin-bottom: 32px;
   }
-  
-  .service-card ul {
-    list-style: none;
-    padding: 0;
+
+  .page-features h5 {
+      font-size: 1.25rem;
   }
-  
-  .service-card li {
-    font-size: 0.9rem;
-    color: #718096;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
+
+  .page-features li {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
   }
-  
-  .service-card li::before {
-    content: '✔';
-    color: #48bb78;
-    position: absolute;
-    left: 0;
-  }
-  
-  /* Call to Action */
-  .cta-section {
-    background: linear-gradient(135deg, #48bb78, #4299e1);
-    color: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    margin: 40px 0;
-  }
-  
-  .cta-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-  
-  .cta-section p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-  }
-  
-  .cta-button {
-    background: #fff;
-    color: #2d3748;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background: #edf2f7;
-  }
+}
