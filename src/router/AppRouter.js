@@ -12,6 +12,7 @@ import OurServices from "../pages/OurServices"; // New page
 import AboutUs from "../pages/AboutUs"; // New page
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "../pages/Payment";
 
 const AppRouter = () => {
   const location = useLocation();
@@ -42,6 +43,7 @@ const AppRouter = () => {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/our-services" element={<OurServices />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/payment" element={<Payment />} /> {/* Redirect to HomePage for any unknown routes */}
         </Routes>
       </AnimatePresence>
     </>

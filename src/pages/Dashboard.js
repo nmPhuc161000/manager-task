@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faTimes, faQuestionCircle, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -231,7 +231,9 @@ const Dashboard = () => {
         <button className="tab">Đang xem</button>
         <button className="tab">Thành viên (6)</button>
         <button className="tab">Cài đặt</button>
-        <button className="tab upgrade">Nâng cấp</button>
+        <Link to="/payment" >
+          <button className="tab upgrade">Nâng cấp</button>
+        </Link>
       </div>
       <div className="dashboard-section">
         <BoardList
