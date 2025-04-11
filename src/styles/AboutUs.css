@@ -1,0 +1,207 @@
+/* src/styles/AboutUs.css */
+.about-us-page {
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    display: flex; /* Add flexbox */
+    flex-direction: column; /* Stack children vertically */
+  }
+  
+  /* Ensure main content takes available space */
+  main {
+    flex: 1; /* Pushes footer to bottom when content is short */
+  }
+  
+  /* About Header */
+  .about-header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+    color: white;
+    border-radius: 0 0 50px 50px;
+  }
+  
+  .about-header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .about-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  
+  .mission-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .mission-section p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Duty Section */
+  .duty-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f5f7fa;
+  }
+  
+  .duty-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .duty-section p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Team Section */
+  .team-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  
+  .team-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .team-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .team-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .team-card span {
+    font-size: 1rem;
+    color: #6e8efb;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .team-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f5f7fa;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #e65a50;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-header h1 {
+      font-size: 2.5rem;
+    }
+  
+    .about-header p {
+      font-size: 1.1rem;
+    }
+  
+    .mission-section h2,
+    .duty-section h2,
+    .team-section h2 {
+      font-size: 2rem;
+    }
+  
+    .team-card {
+      padding: 20px;
+    }
+  
+    .cta-button {
+      padding: 10px 25px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-header {
+      padding: 60px 15px;
+    }
+  
+    .mission-section,
+    .duty-section,
+    .team-section {
+      padding: 40px 15px;
+    }
+  
+    .team-card h3 {
+      font-size: 1.3rem;
+    }
+  
+    .team-card span {
+      font-size: 0.9rem;
+    }
+  
+    .team-card p {
+      font-size: 0.85rem;
+    }
+  }

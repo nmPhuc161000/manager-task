@@ -48,7 +48,7 @@ export const pricingPlans = [
   },
   {
     name: 'Standard',
-    price: '39,000 VND/month (was 49,000 VND)', // Updated to show discount
+    price: '39,000 VND/month (was 49,000 VND)',
     features: [
       'Up to 20 boards for enhanced productivity and team workflows',
       'Advanced team collaboration with real-time updates and mentions',
@@ -62,16 +62,17 @@ export const pricingPlans = [
     highlighted: true,
   },
   {
-    name: 'Contact Us',
-    price: 'Custom Quote Available',
+    name: 'Premium',
+    price: '399,000 VND/year (was 468,000 VND)', // Updated to annual plan with discount
     features: [
-      'Need more than Pro? Contact us for a personalized plan',
-      'Discuss your needs with our team for tailored solutions',
-      'Flexible board and feature limits based on your requirements',
-      'Custom support options—let’s find what works for you',
-      'Advanced integrations and security—talk to us for details',
-      'Scalable storage and file upload options upon request',
-      'Exclusive training and onboarding—contact us to learn more',
+      'Unlimited boards for maximum productivity and scalability',
+      'All Standard plan features, plus exclusive Premium benefits',
+      'Dedicated account manager and 24/7 priority support',
+      'Unlimited file uploads (up to 100MB per file)',
+      'Advanced security features, including two-factor authentication',
+      'Custom reporting and analytics with real-time insights',
+      'Exclusive access to beta features and early updates',
+      'Team training sessions and personalized onboarding',
     ],
     highlighted: false,
   },
@@ -95,3 +96,152 @@ export const faqs = [
     answer: 'Absolutely. We use industry-standard encryption to ensure your data is safe and secure.',
   },
 ];
+// sampleData.js
+export const services = [
+  {
+    title: 'Task Organization',
+    description:
+      'Easily create, categorize, and prioritize tasks for assignments, projects, and exams. Set due dates and get reminders to stay on top of deadlines.',
+    icon: '📋',
+    features: [
+      'Custom task categories (e.g., Math, Literature)',
+      'Drag-and-drop prioritization',
+      'Recurring task support for weekly study sessions',
+    ],
+  },
+  {
+    title: 'Study Planner',
+    description:
+      'Build personalized study schedules that align with your academic goals. Break down complex subjects into manageable study sessions.',
+    icon: '📅',
+    features: [
+      'Weekly and monthly planner views',
+      'Smart scheduling based on deadlines',
+      'Integration with calendar apps',
+    ],
+  },
+  {
+    title: 'Progress Tracking',
+    description:
+      'Monitor your academic progress with visual dashboards. Track completed tasks, grades, and study hours to stay motivated.',
+    icon: '📊',
+    features: [
+      'Interactive progress charts',
+      'Grade tracking per subject',
+      'Milestone celebrations for motivation',
+    ],
+  },
+  {
+    title: 'Resource Hub',
+    description:
+      'Access a curated library of study resources, including templates, guides, and note-taking tools tailored for students.',
+    icon: '📚',
+    features: [
+      'Note-taking templates for lectures',
+      'Flashcard creator for quick reviews',
+      'Links to trusted academic resources',
+    ],
+  },
+  {
+    title: 'Focus Mode',
+    description:
+      'Boost productivity with a distraction-free focus mode. Use Pomodoro timers and block notifications during study sessions.',
+    icon: '⏱️',
+    features: [
+      'Customizable Pomodoro intervals',
+      'Website and app blocker integration',
+      'Session analytics to improve focus',
+    ],
+  },
+  {
+    title: 'Goal Setting',
+    description:
+      'Set short-term and long-term academic goals. Break them into actionable steps and receive guidance to achieve them.',
+    icon: '🎯',
+    features: [
+      'SMART goal templates',
+      'Progress checkpoints',
+      'Motivational reminders',
+    ],
+  },
+];
+
+export const serviceEmpowerments = [
+  {
+    title: 'Task Organization',
+    explanation:
+      'Streamline your academic responsibilities with a system that transforms chaos into order, ensuring no deadline slips through the cracks and every priority is crystal clear.',
+    icon: '📋',
+  },
+  {
+    title: 'Study Planner',
+    explanation:
+      'Master your time with a tailored roadmap that optimizes your study efforts, aligning every hour with your ambitions for maximum efficiency and success.',
+    icon: '📅',
+  },
+  {
+    title: 'Progress Tracking',
+    explanation:
+      'Gain clarity on your academic journey with insights that highlight your achievements, empowering you to refine strategies and excel with confidence.',
+    icon: '📊',
+  },
+  {
+    title: 'Resource Hub',
+    explanation:
+      'Elevate your learning with a centralized arsenal of high-quality tools, designed to enhance comprehension and accelerate your path to mastery.',
+    icon: '📚',
+  },
+  {
+    title: 'Focus Mode',
+    explanation:
+      'Unlock peak productivity by creating an environment where concentration thrives, turning every study session into a powerhouse of progress.',
+    icon: '⏱️',
+  },
+  {
+    title: 'Goal Setting',
+    explanation:
+      'Achieve academic excellence by defining clear objectives and following a structured path, supported by tools that keep your aspirations within reach.',
+    icon: '🎯',
+  },
+];
+export const aboutUsData = {
+  mission: "Our mission is to empower individuals and teams to achieve their fullest potential by providing intuitive, powerful tools that simplify task management and boost productivity.",
+  duty: "We are committed to delivering exceptional user experiences, ensuring reliability, and continuously innovating to meet the evolving needs of our community. Our duty is to support your success every step of the way.",
+  team: [
+    {
+      name: "Alex Carter",
+      role: "Founder & CEO",
+      bio: "Alex drives the vision of Pro Manager with over a decade of experience in tech leadership."
+    },
+    {
+      name: "Sofia Nguyen",
+      role: "Chief Technology Officer",
+      bio: "Sofia leads our tech team, crafting robust solutions with her expertise in software engineering."
+    },
+    {
+      name: "James Patel",
+      role: "Product Manager",
+      bio: "James ensures our tools meet user needs, blending creativity with strategic insight."
+    },
+    {
+      name: "Emma Lopez",
+      role: "Lead Designer",
+      bio: "Emma shapes the look and feel of Pro Manager, with a passion for user-centric design."
+    },
+    {
+      name: "Liam Brooks",
+      role: "Senior Developer",
+      bio: "Liam builds the backbone of our platform, excelling in code and problem-solving."
+    },
+    {
+      name: "Olivia Kim",
+      role: "Marketing Lead",
+      bio: "Olivia spreads the word about Pro Manager, connecting with users worldwide."
+    },
+    {
+      name: "Noah Evans",
+      role: "Customer Success Manager",
+      bio: "Noah ensures every user thrives, offering support with a smile."
+    }
+  ]
+};

@@ -146,7 +146,7 @@ body {
   color: #999;
 }
 
-/* Pricing Section - Adding Tick Icon */
+/* Pricing Section - Adding Tick Icon, Best Seller, and Discounts */
 .pricing-section {
   padding: 80px 20px;
   text-align: center;
@@ -173,12 +173,27 @@ body {
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+  position: relative; /* For Best Seller badge */
 }
 
 .pricing-card.highlighted {
   background: #6e8efb;
   color: white;
   transform: scale(1.05);
+}
+
+.pricing-card.highlighted::after {
+  content: 'Best Seller';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6f61; /* Matches cta-button */
+  color: white;
+  padding: 5px 15px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .pricing-card h3 {
@@ -191,6 +206,24 @@ body {
   font-size: 1.8rem;
   margin-bottom: 20px;
   font-weight: 700;
+}
+
+.pricing-card .price::after {
+  content: attr(data-original-price);
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  text-decoration: line-through;
+  margin-top: 5px;
+}
+
+.pricing-card.highlighted .price::after {
+  color: #ddd; /* Lighter for highlighted card */
+}
+
+.pricing-card .price:not([data-original-price])::after {
+  content: none;
 }
 
 .pricing-card ul {
@@ -211,7 +244,7 @@ body {
   color: #fff;
 }
 
-.pricing-card ul li:before {
+.pricing-card ul li::before {
   content: '✓';
   position: absolute;
   left: 0;
@@ -220,18 +253,34 @@ body {
   font-size: 1.2rem;
 }
 
-.pricing-card.highlighted ul li:before {
+.pricing-card.highlighted ul li::before {
   color: #ffffff; /* White tick for highlighted card */
 }
 
 .pricing-card .cta-button {
-  background-color: #ff6f61;
+  width: 100%; /* Full-width for consistency */
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   color: white;
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 10px; /* Adjusted for card context */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pricing-card .cta-button:hover {
+  background-color: #e65a50;
 }
 
 .pricing-card.highlighted .cta-button {
   background-color: #ffffff;
   color: #6e8efb;
+}
+
+.pricing-card.highlighted .cta-button:hover {
+  background-color: #f0f0f0; /* Subtle hover effect */
 }
 
 /* FAQ Section */
@@ -286,6 +335,30 @@ body {
   font-weight: 700;
 }
 
+/* Footer Section */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #444;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section h1 {
@@ -311,5 +384,28 @@ body {
 
   .feature-card {
     padding: 25px;
+  }
+
+  .footer {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .pricing-card .price {
+    font-size: 1.6rem;
+  }
+
+  .pricing-card .cta-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
   }
 }

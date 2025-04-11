@@ -1,16 +1,22 @@
 import React from 'react';
 import '../../styles/Header.css';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  // Handler to navigate to homepage
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo */}
-        <div className="logo">
-          <Link to="/">
-            <h1>Pro Manager</h1>  {/* Replace with actual logo path */}
-          </Link>
+        {/* Logo - Clickable */}
+        <div className="logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+          <h1>Pro Manager</h1>
         </div>
 
         {/* Navigation Menu */}
