@@ -177,4 +177,9 @@
         font-size: 0.95rem;
         /* Slightly smaller text for mobile */
     }
+    .logo-link {
+        text-decoration: none;
+        color: inherit; /* Inherit the white color from .logo */
+      }
+      
 }
