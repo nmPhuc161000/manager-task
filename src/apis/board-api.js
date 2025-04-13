@@ -18,13 +18,9 @@ export const createNewBoard = async (data) => {
     }
 };
 
-export const viewAllOpenBoards = async (pageIndex = 0, pageSize = 10) => {
+export const viewAllOpenBoards = async (userId, pageIndex, pageSize) => {
     try {
-        const response = await apiClient.get(`/api/board/ViewAllOpenBoards`, {
-            params: {
-                pageIndex,
-                pageSize,
-            },
+        const response = await apiClient.get(`/api/board/ViewAllBoardsPagin?userId=${userId}&pageIndex=${pageIndex}&pageSize=${pageSize}`, {
             headers: {
                 Accept: "*/*",
                 "Authorization": `Bearer ${token}`,

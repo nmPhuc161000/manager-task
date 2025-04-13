@@ -21,6 +21,7 @@ const Dashboard = () => {
   const [boards, setBoards] = useState([]);
   const [showArchived, setShowArchived] = useState(false);
   const [selectedBoardId, setSelectedBoardId] = useState(null);
+  const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,9 +43,9 @@ const Dashboard = () => {
 
   const fetchBoards = async () => {
     try {
-      const response = await viewAllOpenBoards(0, 10);
+      const response = await viewAllOpenBoards(userId, 0, 10);
       console.log("View all boards response:", response.data);
-      if (response.data && response.data.error === 0) {
+      if (response.data) {
         setBoards(response.data.items || response.data.data || []);
       } else {
         setBoards([]);
