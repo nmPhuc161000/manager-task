@@ -1,0 +1,215 @@
+/* src/styles/Payment.css */
+.payment-section {
+  background: #ffffff; /* Matches pricing-section */
+  min-height: calc(100vh - 80px); /* Adjust for header */
+  padding: 80px 20px; /* Matches pricing-section */
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.payment-container {
+  max-width: 1200px; /* Matches pricing-grid */
+  margin: 0 auto;
+  position: relative; /* For back button */
+}
+
+.back-button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #ff6f61; /* Matches cta-button */
+  border: none;
+  border-radius: 50%; /* Circular icon */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background: #e65a50; /* Matches cta-button:hover */
+  transform: scale(1.1);
+}
+
+.back-button:active {
+  transform: scale(1);
+}
+
+.payment-container h2 {
+  font-size: 2.5rem; /* Matches pricing-section h2 */
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Matches pricing-grid */
+  gap: 30px; /* Matches pricing-grid */
+}
+
+.subscription-card {
+  background: #f9f9f9; /* Matches pricing-card */
+  padding: 30px;
+  border-radius: 15px; /* Matches pricing-card */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Matches pricing-card */
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.subscription-card.highlighted {
+  background: #6e8efb; /* Matches pricing-card.highlighted */
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.subscription-card.highlighted::after {
+  content: 'Best Seller'; /* Matches pricing-card */
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6f61;
+  color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.subscription-card:hover {
+  transform: translateY(-8px); /* Matches feature-card */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-card.highlighted:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+.subscription-card h3 {
+  font-size: 1.5rem; /* Matches pricing-card h3 */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.subscription-card .description {
+  font-size: 1rem; /* Matches pricing-card li */
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 60px; /* Ensure alignment */
+}
+
+.subscription-card.highlighted .description {
+  color: #ddd; /* Lighter for contrast */
+}
+
+.subscription-card .price {
+  font-size: 1.8rem; /* Matches pricing-card price */
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.subscription-card.highlighted .price {
+  color: #ffffff;
+}
+
+.cta-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #ff6f61; /* Matches pricing-card cta-button */
+  border: none;
+  border-radius: 10px; /* Matches pricing-card cta-button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #e65a50; /* Matches pricing-card cta-button:hover */
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.subscription-card.highlighted .cta-button {
+  background: #ffffff; /* Matches pricing-card.highlighted cta-button */
+  color: #6e8efb;
+}
+
+.subscription-card.highlighted .cta-button:hover {
+  background: #f0f0f0; /* Matches pricing-card.highlighted cta-button:hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-section {
+    padding: 60px 15px;
+  }
+
+  .subscriptions-grid {
+    grid-template-columns: 1fr; /* Stack like pricing-card */
+    gap: 20px;
+  }
+
+  .subscription-card.highlighted {
+    transform: scale(1);
+  }
+
+  .payment-container h2 {
+    font-size: 2rem;
+  }
+
+  .subscription-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .subscription-card .price {
+    font-size: 1.6rem;
+  }
+
+  .cta-button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .back-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-section {
+    padding: 40px 10px;
+  }
+
+  .payment-container {
+    padding: 0 10px;
+  }
+
+  .back-button {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .subscription-card {
+    padding: 20px;
+  }
+}
