@@ -1,11 +1,10 @@
+// src/components/Pricing.js
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 import '../styles/HomePage.css';
 import { motion } from 'framer-motion';
 import { pricingPlans } from '../data/sampleData';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer'; // Import new Footer component
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -25,11 +24,11 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   const handlePlanNavigation = (planName) => {
-    if (planName === 'Basic') {
-      navigate('/login');
-    } else if (planName === 'Standard' || planName === 'Premium') {
-      navigate('/payment'); // Updated for Premium
-    }
+    // Define the intended destination after login
+    const destination =
+      planName === 'Basic' ? '/dashboard' : '/payment';
+    // Redirect to login, passing the destination in state
+    navigate('/login', { state: { from: '/pricing', redirectTo: destination, planName } });
   };
 
   return (
@@ -75,8 +74,8 @@ const Pricing = () => {
                     {plan.name === 'Basic'
                       ? 'Get Started'
                       : plan.name === 'Standard'
-                        ? 'Pay Now'
-                        : 'Subscribe Yearly'}
+                      ? 'Pay Now'
+                      : 'Subscribe Yearly'}
                   </button>
                 </motion.div>
               );

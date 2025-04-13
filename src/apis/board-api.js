@@ -200,3 +200,17 @@ export const deleteBoard = async (boardId) => {
         throw error.response?.data || { error: 1, message: "Lỗi không xác định" };
     }
 };
+export const viewAllSubscriptions = async () => {
+    try {
+      const response = await apiClient.get('/api/subcription/ViewAllSubcriptions', {
+        headers: {
+          Accept: 'text/plain',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response;
+    } catch (error) {
+      console.error('Error fetching subscriptions:', error.response?.data || error.message);
+      throw error.response?.data || { error: 1, message: 'Lỗi không xác định' };
+    }
+  };
