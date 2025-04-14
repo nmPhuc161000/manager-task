@@ -1,9 +1,8 @@
-// src/components/Payment.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Payment.css';
 import PaymentLayout from '../layouts/PaymentLayout';
-import { viewAllSubscriptions } from '../apis/board-api'; // Corrected import
+import { viewAllSubscriptions } from '../apis/board-api';
 import { createNewPayment } from '../apis/payment-api';
 import { motion } from 'framer-motion';
 
@@ -31,21 +30,32 @@ const Payment = () => {
   const token = localStorage.getItem('token') || null;
 
   useEffect(() => {
-    // Log user data
-    console.log('User Data:', {
-      userId,
-      token,
-    });
+    console.log('User Data:', { userId, token });
 
     const fetchSubscriptions = async () => {
       try {
         const response = await viewAllSubscriptions();
+        console.log('Full API Response:', response);
+        console.log('Response Data:', response.data);
+
         const subscriptionData = response.data.data || [];
-        setSubscriptions(subscriptionData);
-        // Log subscription data
-        console.log('Subscription Data:', subscriptionData);
+        console.log('Subscription Data (before filtering):', subscriptionData);
+
+        // Filter subscriptions: require ID, name, and price > 0
+        const validSubscriptions = Array.isArray(subscriptionData)
+          ? subscriptionData.filter((sub) => {
+              const hasName = sub?.subcriptionName && typeof sub.subcriptionName === 'string';
+              const hasId = sub?.id;
+              const hasPrice = typeof sub?.price === 'number' && sub.price > 0;
+              return hasId && hasName && hasPrice;
+            })
+          : [];
+
+        console.log('Filtered Subscriptions:', validSubscriptions);
+        setSubscriptions(validSubscriptions);
         setLoading(false);
       } catch (err) {
+        console.error('Error fetching subscriptions:', err.response || err.message);
         setError('Failed to load subscriptions. Please try again.');
         setLoading(false);
       }
@@ -55,24 +65,31 @@ const Payment = () => {
   }, []);
 
   const handlePayNow = async (subscriptionId) => {
-    if (!userId) {
+    if (!userId || !token) {
       alert('Please log in to proceed with payment.');
       navigate('/login', { state: { from: '/payment' } });
       return;
     }
 
     try {
-      const formData = new FormData();
-      formData.append('subscriptionId', subscriptionId);
-      formData.append('userId', userId);
+      // Use subcriptionId to match API schema, add cancelUrl and returnUrl
+      const paymentData = {
+        subcriptionId: subscriptionId,
+        userId,
+        cancelUrl: `${window.location.origin}/payment`, // Redirect to Payment page on cancel
+        returnUrl: `${window.location.origin}/dashboard`, // Redirect to Dashboard on success
+      };
+      console.log('Payment Payload:', paymentData);
 
-      const response = await createNewPayment(formData);
+      const response = await createNewPayment(paymentData);
+      console.log('Payment Response:', response.data);
       const { paymentUrl } = response.data;
 
-      if (paymentUrl && paymentUrl !== 'Subcription is not exist') {
+      if (paymentUrl && paymentUrl !== 'Subcription is not exist' && paymentUrl.startsWith('https://')) {
         window.location.href = paymentUrl;
       } else {
-        alert('Payment initiation failed: Invalid subscription.');
+        console.error('Invalid payment URL:', paymentUrl);
+        alert('Payment initiation failed: Invalid subscription or payment URL.');
       }
     } catch (err) {
       console.error('Payment error:', err.response?.data || err.message);
@@ -85,10 +102,11 @@ const Payment = () => {
   };
 
   const formatPrice = (price) => {
+    const numericPrice = Number(price) || 0;
     return new Intl.NumberFormat('vi-VN', {
       style: 'currency',
       currency: 'VND',
-    }).format(price ); // Divide by 1000 as per original logic
+    }).format(numericPrice);
   };
 
   if (loading) {
@@ -157,20 +175,20 @@ const Payment = () => {
               <motion.div
                 key={subscription.id}
                 className={`subscription-card ${
-                  subscription.subcriptionName.toLowerCase().includes('standard')
+                  (subscription.subcriptionName || '').toLowerCase().includes('standard')
                     ? 'highlighted'
                     : ''
                 }`}
                 variants={itemVariants}
                 whileHover={{ scale: 1.03 }}
               >
-                <h3>{subscription.subcriptionName}</h3>
-                <p className="description">{subscription.description}</p>
+                <h3>{subscription.subcriptionName || 'Unnamed Plan'}</h3>
+                <p className="description">{subscription.description || 'No description available'}</p>
                 <p className="price">{formatPrice(subscription.price)}</p>
                 <button
                   className="cta-button"
                   onClick={() => handlePayNow(subscription.id)}
-                  aria-label={`Pay for ${subscription.subcriptionName}`}
+                  aria-label={`Pay for ${subscription.subcriptionName || 'plan'}`}
                 >
                   Pay Now
                 </button>
