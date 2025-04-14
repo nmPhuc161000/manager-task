@@ -18,13 +18,9 @@ export const createNewBoard = async (data) => {
     }
 };
 
-export const viewAllOpenBoards = async (pageIndex = 0, pageSize = 10) => {
+export const viewAllOpenBoards = async (userId, pageIndex, pageSize) => {
     try {
-        const response = await apiClient.get(`/api/board/ViewAllOpenBoards`, {
-            params: {
-                pageIndex,
-                pageSize,
-            },
+        const response = await apiClient.get(`/api/board/ViewAllBoardsPagin?userId=${userId}&pageIndex=${pageIndex}&pageSize=${pageSize}`, {
             headers: {
                 Accept: "*/*",
                 "Authorization": `Bearer ${token}`,
@@ -204,3 +200,17 @@ export const deleteBoard = async (boardId) => {
         throw error.response?.data || { error: 1, message: "Lỗi không xác định" };
     }
 };
+export const viewAllSubscriptions = async () => {
+    try {
+      const response = await apiClient.get('/api/subcription/ViewAllSubcriptions', {
+        headers: {
+          Accept: 'text/plain',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response;
+    } catch (error) {
+      console.error('Error fetching subscriptions:', error.response?.data || error.message);
+      throw error.response?.data || { error: 1, message: 'Lỗi không xác định' };
+    }
+  };

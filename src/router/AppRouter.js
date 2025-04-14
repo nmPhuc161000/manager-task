@@ -13,6 +13,7 @@ import AboutUs from "../pages/AboutUs";
 import { ErrorProvider } from "../contexts/ErrorContext"; // Đảm bảo import đúng đường dẫn
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "../pages/Payment";
 
 const AppRouter = () => {
     const location = useLocation();
@@ -43,6 +44,7 @@ const AppRouter = () => {
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/our-services" element={<OurServices />} />
                     <Route path="/about-us" element={<AboutUs />} />
+                    <Route path="/payment" element={<Payment />}/>
                 </Routes>
             </AnimatePresence>
         </ErrorProvider>

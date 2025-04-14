@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/Header.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -21,16 +22,16 @@ const Header = () => {
         {/* Navigation Menu */}
         <nav className="nav-menu">
           <ul>
-            <li><a href="/product-guide">Product Guide</a></li>
-            <li><a href="/our-services">Our Services</a></li>
-            <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/about-us">About Us</a></li>
+            <li><Link to="/product-guide">Product Guide</Link></li>
+            <li><Link to="/our-services">Our Services</Link></li>
+            <li><Link to="/pricing">Pricing</Link></li>
+            <li><Link to="/about-us">About Us</Link></li>
           </ul>
         </nav>
 
         {/* Sign In Button */}
         <div className="sign-in">
-          <a href="/login" className="sign-in-button">Sign In</a>
+          <Link to="/login" className="sign-in-button">Sign In</Link>
         </div>
       </div>
     </header>

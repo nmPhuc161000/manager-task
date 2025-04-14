@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faColumns,
-  faTable,
   faHome,
   faStar,
   faUsers,
@@ -22,16 +21,14 @@ const Sidebar = () => {
 
   // Main menu items (top section)
   const mainMenuItems = [
-    { icon: faColumns, text: "Bảng", path: "/dashboard" },
-    { icon: faTable, text: "Mẫu", path: "/templates" },
-    { icon: faHome, text: "Trang chủ", path: "/" },
+    { icon: faHome, text: "Trang chủ", path: "/dashboard" },
   ];
 
   // Workspace items (under "TeamSync Không gian làm việc")
   const workspaces = [
     {
       icon: faColumns,
-      name: "TeamSync Không gian làm việc",
+      name: "ProManager Không gian làm việc",
       items: [
         { icon: faColumns, text: "Bảng", path: "/teamsync/boards" },
         { icon: faStar, text: "Điểm nổi bật", path: "/teamsync/starred" },

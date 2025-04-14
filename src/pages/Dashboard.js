@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faTimes, faQuestionCircle, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +21,7 @@ const Dashboard = () => {
   const [boards, setBoards] = useState([]);
   const [showArchived, setShowArchived] = useState(false);
   const [selectedBoardId, setSelectedBoardId] = useState(null);
+  const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,9 +43,9 @@ const Dashboard = () => {
 
   const fetchBoards = async () => {
     try {
-      const response = await viewAllOpenBoards(0, 10);
+      const response = await viewAllOpenBoards(userId, 0, 10);
       console.log("View all boards response:", response.data);
-      if (response.data && response.data.error === 0) {
+      if (response.data) {
         setBoards(response.data.items || response.data.data || []);
       } else {
         setBoards([]);
@@ -226,12 +227,14 @@ const Dashboard = () => {
       </div>
       <h2 className="dashboard-title">Các Không gian làm việc của bạn</h2>
       <div className="dashboard-tabs">
-        <button className="tab active">Trello Không gian làm việc</button>
+        <button className="tab active">Không gian làm việc</button>
         <button className="tab">Bảng</button>
         <button className="tab">Đang xem</button>
         <button className="tab">Thành viên (6)</button>
         <button className="tab">Cài đặt</button>
-        <button className="tab upgrade">Nâng cấp</button>
+        <Link to="/payment" >
+          <button className="tab upgrade">Nâng cấp</button>
+        </Link>
       </div>
       <div className="dashboard-section">
         <BoardList
