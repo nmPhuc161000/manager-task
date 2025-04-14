@@ -2,13 +2,14 @@ import apiClient from "./url-api";
 
 const token = localStorage.getItem("token");
 
+
 export const createNewPayment = async (data) => {
     try {
         const response = await apiClient.post(`/api/Payment/create`, data, {
             headers: {
-                Accept: "text/plain",
+                Accept: "application/json", // Updated to expect JSON response
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             },
         });
         return response;
@@ -16,4 +17,4 @@ export const createNewPayment = async (data) => {
         console.error("Error creating payment:", error.response?.data || error.message);
         throw error;
     }
-}
+};
