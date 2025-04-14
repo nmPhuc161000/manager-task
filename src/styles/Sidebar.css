@@ -1,5 +1,6 @@
 /* General Sidebar Styling */
 .sidebar {
+  flex-shrink: 0; /* Ngăn sidebar bị co lại */
   background: #f5f6f5;
   padding: 20px 0;
   display: flex;
