@@ -61,11 +61,11 @@ const AppRouter = () => {
                     />
                     <Route
                         path="/payment/successful"
-                        element={<ProtectedRoute element={<Successful />} />}
+                        element={<Successful />}
                     />
                     <Route
                         path="/payment/cancel"
-                        element={<ProtectedRoute element={<Cancel />} />}
+                        element={<Cancel />}
                     />
                 </Routes>
             </AnimatePresence>
