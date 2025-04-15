@@ -1,0 +1,180 @@
+.product-guide-section {
+    padding: 40px 20px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  .guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .guide-container h1 {
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .guide-intro {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .guide-sections {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .guide-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .guide-card-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #f1f5f9;
+  }
+  
+  .guide-icon {
+    margin-right: 15px;
+    color: #3182ce;
+    font-size: 1.5rem;
+  }
+  
+  .guide-card h3 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  .guide-card-content {
+    padding: 20px;
+    background: #fff;
+  }
+  
+  .guide-card-content p {
+    color: #4a5568;
+    margin-bottom: 15px;
+  }
+  
+  .guide-card-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .guide-card-content li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    color: #2d3748;
+  }
+  
+  .step-icon {
+    margin-right: 10px;
+    color: #48bb78;
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+  
+  .code-section {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .code-section h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+  }
+  
+  .code-block {
+    position: relative;
+    background: #2d3748;
+    padding: 20px;
+    border-radius: 6px;
+    color: #e2e8f0;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: auto;
+  }
+  
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #3182ce;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .copy-btn:hover {
+    background: #2b6cb0;
+  }
+  
+  .cta-section {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .cta-section h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+  }
+  
+  .cta-section p {
+    color: #4a5568;
+    margin-bottom: 20px;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .cta-button {
+    background: #3182ce;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .cta-button.secondary {
+    background: #e2e8f0;
+    color: #2d3748;
+  }
+  
+  .cta-button:hover {
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .guide-container h1 {
+      font-size: 2rem;
+    }
+  
+    .guide-sections {
+      grid-template-columns: 1fr;
+    }
+  }
