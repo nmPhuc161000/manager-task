@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faAngleDown, faBell } from "@fortawesome/free-solid-svg-icons";
 import UserAvatar from "../UserAvatar";
-// import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import "../../styles/HeaderDashboard.css";
 
 const HeaderDashboard = () => {
-//   const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <header className={`header-dashboard`}>
+    <header className={`header-dashboard ${theme}`}>
       <div className="header-left">
         <Link to="/dashboard" className="logo">
           ProManage
