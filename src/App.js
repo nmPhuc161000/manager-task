@@ -1,12 +1,16 @@
+// src/App.js
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
-
-import AppRouter from "./router/AppRouter"; // Import AppRouter
+import AppRouter from "./router/AppRouter";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppRouter />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
