@@ -14,6 +14,9 @@ import { ErrorProvider } from "../contexts/ErrorContext"; // Đảm bảo import
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Payment from "../pages/Payment";
+import Successful from "../pages/status_payment/Successful";
+import Cancel from "../pages/status_payment/Cancel";
+import ProtectedRoute from "./ProtectedRoute"; // Đảm bảo import đúng đường dẫn
 
 const AppRouter = () => {
     const location = useLocation();
@@ -38,13 +41,32 @@ const AppRouter = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/board/:boardId" element={<BoardDetails />} />
-                    <Route path="/product-guide" element={<ProductGuide />} />
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/our-services" element={<OurServices />} />
                     <Route path="/about-us" element={<AboutUs />} />
-                    <Route path="/payment" element={<Payment />}/>
+                    <Route path="/product-guide" element={<ProductGuide />} />
+
+                    {/* Các route được bảo vệ */}
+                    <Route
+                        path="/dashboard"
+                        element={<ProtectedRoute element={<Dashboard />} />}
+                    />
+                    <Route
+                        path="/board/:boardId"
+                        element={<ProtectedRoute element={<BoardDetails />} />}
+                    />
+                    <Route
+                        path="/payment"
+                        element={<ProtectedRoute element={<Payment />} />}
+                    />
+                    <Route
+                        path="/payment/successful"
+                        element={<ProtectedRoute element={<Successful />} />}
+                    />
+                    <Route
+                        path="/payment/cancel"
+                        element={<ProtectedRoute element={<Cancel />} />}
+                    />
                 </Routes>
             </AnimatePresence>
         </ErrorProvider>
