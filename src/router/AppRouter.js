@@ -1,3 +1,4 @@
+// src/router/AppRouter.js
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Login from "../pages/authme/Login";
@@ -10,44 +11,46 @@ import ProductGuide from "../pages/ProductGuide";
 import Pricing from "../pages/Pricing";
 import OurServices from "../pages/OurServices";
 import AboutUs from "../pages/AboutUs";
-import { ErrorProvider } from "../contexts/ErrorContext"; // Đảm bảo import đúng đường dẫn
+import { ErrorProvider } from "../contexts/ErrorContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Payment from "../pages/Payment";
+import Settings from "../pages/Settings";
 import Successful from "../pages/status_payment/Successful";
 import Cancel from "../pages/status_payment/Cancel";
 import ProtectedRoute from "./ProtectedRoute"; // Đảm bảo import đúng đường dẫn
 
 const AppRouter = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    return (
-        <ErrorProvider>
-            {/* Đặt ToastContainer bên trong ErrorProvider để có thể sử dụng context nếu cần */}
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={true}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/forgot-password" element={<ForgotPassword />} />
-                    <Route path="/pricing" element={<Pricing />} />
-                    <Route path="/our-services" element={<OurServices />} />
-                    <Route path="/about-us" element={<AboutUs />} />
-                    <Route path="/product-guide" element={<ProductGuide />} />
-
-                    {/* Các route được bảo vệ */}
-                    <Route
+  return (
+    <ErrorProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/board/:boardId" element={<BoardDetails />} />
+          <Route path="/product-guide" element={<ProductGuide />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/our-services" element={<OurServices />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route
                         path="/dashboard"
                         element={<ProtectedRoute element={<Dashboard />} />}
                     />
@@ -67,10 +70,11 @@ const AppRouter = () => {
                         path="/payment/cancel"
                         element={<Cancel />}
                     />
-                </Routes>
-            </AnimatePresence>
-        </ErrorProvider>
-    );
+        </Routes>
+      </AnimatePresence>
+    </ErrorProvider>
+  );
+ 
 };
 
 export default AppRouter;
