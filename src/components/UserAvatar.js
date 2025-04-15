@@ -17,7 +17,7 @@ const UserAvatar = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("userData");
+    localStorage.clear();
     window.location.href = "/login";
   };
 

@@ -16,6 +16,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Payment from "../pages/Payment";
 import Settings from "../pages/Settings";
+import Successful from "../pages/status_payment/Successful";
+import Cancel from "../pages/status_payment/Cancel";
+import ProtectedRoute from "./ProtectedRoute"; // Đảm bảo import đúng đường dẫn
 
 const AppRouter = () => {
   const location = useLocation();
@@ -47,10 +50,31 @@ const AppRouter = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/settings" element={<Settings />} />
+          <Route
+                        path="/dashboard"
+                        element={<ProtectedRoute element={<Dashboard />} />}
+                    />
+                    <Route
+                        path="/board/:boardId"
+                        element={<ProtectedRoute element={<BoardDetails />} />}
+                    />
+                    <Route
+                        path="/payment"
+                        element={<ProtectedRoute element={<Payment />} />}
+                    />
+                    <Route
+                        path="/payment/successful"
+                        element={<ProtectedRoute element={<Successful />} />}
+                    />
+                    <Route
+                        path="/payment/cancel"
+                        element={<ProtectedRoute element={<Cancel />} />}
+                    />
         </Routes>
       </AnimatePresence>
     </ErrorProvider>
   );
+ 
 };
 
 export default AppRouter;
